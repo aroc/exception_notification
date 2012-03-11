@@ -3,11 +3,12 @@ require 'exception_notifier/notifier'
 
 class ExceptionNotifier
   def self.default_ignore_exceptions
-    [].tap do |exceptions|
-      exceptions << ::ActiveRecord::RecordNotFound if defined? ::ActiveRecord::RecordNotFound
-      exceptions << ::AbstractController::ActionNotFound if defined? ::AbstractController::ActionNotFound
-      exceptions << ::ActionController::RoutingError if defined? ::ActionController::RoutingError
-    end
+    return []
+    # [].tap do |exceptions|
+    #   exceptions << ::ActiveRecord::RecordNotFound if defined? ::ActiveRecord::RecordNotFound
+    #   exceptions << ::AbstractController::ActionNotFound if defined? ::AbstractController::ActionNotFound
+    #   exceptions << ::ActionController::RoutingError if defined? ::ActionController::RoutingError
+    # end
   end
 
   def self.default_ignore_crawlers
