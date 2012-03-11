@@ -36,7 +36,7 @@ class ExceptionNotifier
   rescue Exception => exception
     options = (env['exception_notifier.options'] ||= Notifier.default_options)
     options.reverse_merge!(@options)
-
+    debugger
     unless ignored_exception(options[:ignore_exceptions], exception)       ||
            from_crawler(options[:ignore_crawlers], env['HTTP_USER_AGENT']) ||
            options[:ignore_if].call(exception)
